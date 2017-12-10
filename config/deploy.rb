@@ -2,7 +2,7 @@
 lock "~> 3.10.1"
 
 set :application, "code7even"
-set :repo_url, "https://github.com/code7even-inc/code7even.git"
+set :repo_url, "https://github.com/RenatoRosaFranco/code7even_inc.git"
 set :stage, :production
 set :branch, "master"
 
@@ -10,12 +10,17 @@ set :branch, "master"
 # configuration for server deploy
 role :app, "code7even.com"
 role :web, "code7even.com"
+role :db,  "code7even.com", primary: true
+
+set :user, "code7even"
+set :use_sudo, false
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, "/var/www/code7even"
+set :deploy_to,  "/var/www/code7even"
+set :deploy_via, :remote_cache
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
